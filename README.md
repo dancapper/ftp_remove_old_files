@@ -1,7 +1,7 @@
 # ftp_remove_old_files
 
 ftp_remove_old_files.py - a script to remove files older than x days from an FTP site, including subfolder search
-v0.1a June 2021, Dan Capper <dan@hopfulthinking.com>
+v0.2a June 2021, Dan Capper <dan@hopfulthinking.com>
 
 FTP server must support the MLSD command
 
