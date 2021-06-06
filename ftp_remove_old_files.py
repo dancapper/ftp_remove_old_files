@@ -210,7 +210,7 @@ def process_dir():
 
 start_time = datetime.now()
 
-log_info(f'Start processing at {start_time} - host: {FTP_HOST} path: {FTP_PATH} max depth: {MAX_DEPTH}{" - Going Deep" if GO_DEEP else ""}')
+log_info(f'Start processing at {start_time} - host: {FTP_HOST} path: {FTP_PATH} max depth: {MAX_DEPTH} Force RMD: {"enabled" if FORCE_RMD else "disabled"} Go Deep: {"enabled" if GO_DEEP else "disabled"}')
 log_info('SAFE_MODE active - What''s wrong McFly... Chicken?' if SAFE_MODE else 'SAFE_MODE inactive - Going in Weapons Hot')
 log_debug('Debug is Enabled') 
 
