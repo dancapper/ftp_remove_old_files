@@ -2,7 +2,7 @@
 
 ## ftp_remove_old_files.py - a script to remove files older than x days from an FTP site, including subfolder search
 ##
-## v0.1a June 2021, Dan Capper <dan@hopfulthinking.com>
+## v0.2a June 2021, Dan Capper <dan@hopfulthinking.com>
 ## 
 ## FTP server must support the MLSD command
 ##
@@ -129,6 +129,7 @@ def process_file(file):
 					if SAFE_MODE:
 						log_info(f'Would remove Directory {ftp.pwd()}/{file[0]} but SAFE_MODE is active')
 						dirs_removed += 1
+						deleted += 1
 					else:
 						log_info(f'Removing Directory {ftp.pwd()}/{file[0]}')
 						try:
@@ -157,6 +158,7 @@ def process_file(file):
 			if SAFE_MODE:
 				log_info(f'Would delete File {ftp.pwd()}/{file[0]} but SAFE_MODE is set')
 				files_removed += 1
+				deleted += 1
 			else:
 				log_info(f'Deleting {ftp.pwd()}/{file[0]}')
 				try:
@@ -164,6 +166,7 @@ def process_file(file):
 				except Exception as e:
 					log_warn(f"Exception {e.__class__} deleting {file[0]}: {e}")
 				else:
+					log_debug(f'Successfully deleted file {ftp.pwd()}/{file[0]}')
 					files_removed += 1
 					deleted += 1
 		else:
